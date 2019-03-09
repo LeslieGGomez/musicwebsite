@@ -19,7 +19,7 @@
                 $fp = fopen($textpath, "a");
             }
         }
-        
+
         $fp = fopen($textpath, "a");
         if (isset($_POST['song'])) {
             fwrite($fp, "$song\n");
@@ -29,15 +29,15 @@
         <h1> Buy songs from Here:</h1>
         <form action="zmazon.php" method=POST>
             <input type='radio' name='song' value='zmazon'> zmazon<br>
-            <?php//sets hidden information of the user's name.
-            echo "<input type=\"hidden\" name=\"name\" value=\"" . $_SESSION['name'] . "\" />";
+            <?php
+            echo "<input type='hidden' name='name' value='" . $_SESSION['name'] . "'>";
             ?>
             <button type="submit" class="btn btn-primary">Go</button>
         </form>
         <form action="ztunes.php" method=POST>
             <input type='radio' name='song' value='ztunes'> ztunes<br>
-            <?php//sets hidden information of the user's name.
-            echo "<input type=\"hidden\" name=\"name\" value=\"" . $_SESSION['name'] . "\" />";
+            <?php
+            echo "<input type='hidden' name='name' value='" . $_SESSION['name'] . "'>";
             ?>
             <button type="submit" class="btn btn-primary">Go</button>
         </form>

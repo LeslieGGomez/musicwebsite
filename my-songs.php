@@ -19,9 +19,21 @@
 		$fp=fopen($file,"a");
 		
 	}
-	$fp = fopen($file,"name");
-		foreach($_POST['song'] as $s){
-		fputs($fp, $s."\n");
+	//Add songs
+	$fp = fopen($file,"a"); //create file with name and opens file for write
+	if(isset($_POST['song'])){
+		$record = $_POST['song'];
+		foreach($record as $song){
+			fwrite($fp, "$song");
+			if(strstr($song, "\n")){
+				fwrite($fp, "song\n");
+			}
+			else{
+				fwrite($fp,"$song\n");
+			}
+		}
+	}
+	fclose($fp);
  }
 	
 	

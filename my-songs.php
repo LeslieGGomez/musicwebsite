@@ -26,21 +26,25 @@
         }
         fclose($fp);
         ?>
-        <h1> Buy songs from Here:</h1>
+		<h1> Welcome</h1>
+		<h3>View Playlist</h3>
+		<form action = "playlist.php" method=POST>
+			<input type='radio' name='playlist' value='playlist'> myPlaylist<br>
+			 <button type="submit" class="btn btn-primary">Go</button>
+		</form>
+			
+        <h3> Buy songs from Here:</h3>
         <form action="zmazon.php" method=POST>
-            <input type='radio' name='song' value='zmazon'> zmazon<br>
+            <input type="radio" value="zMazon">zAmazon<br>
+			<input type="radio" formaction ="ztunes.php" value="ztunes.php">ztunes<br>
             <?php
             echo "<input type='hidden' name='name' value='" . $_SESSION['name'] . "'>";
             ?>
             <button type="submit" class="btn btn-primary">Go</button>
         </form>
-        <form action="ztunes.php" method=POST>
-            <input type='radio' name='song' value='ztunes'> ztunes<br>
-            <?php
-            echo "<input type='hidden' name='name' value='" . $_SESSION['name'] . "'>";
-            ?>
-            <button type="submit" class="btn btn-primary">Go</button>
-        </form>
+
+       
+		 
     </center>
 </body>
 </html> 

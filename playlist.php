@@ -23,7 +23,7 @@
 				</br>
 				</br>
 				<?php
-				// Stores the sent item as a string and prints a form.
+	// Stores the sent item as a string and prints a form.
       $song = $_POST["song"];
       adding($song);
       echo "<form action=\"my-songs.php\">";
@@ -39,8 +39,7 @@
 </html>
 
 <?php
-// addSongToSession is a way for the string that was passed to be added into the
-// songs session which are the songs that will be displayed on the myPlaylist page.
+// add song to array 
 function adding($songToAdd) {
   array_push($_SESSION['playlist'], $songToAdd);
 }

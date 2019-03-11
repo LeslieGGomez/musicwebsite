@@ -31,19 +31,15 @@
 	
 
 <?php
-// printMyPlaylist was used to take all the values of the specified session and
-// put them in a html table format. This is how all the pages display their
-// music.
+// this function prints the array in playlist
 function printMyPlaylist() {
     // To traverse the session and place each element in the apporopriate cell.
     for ($i = 1; $i < count($_SESSION['playlist']); $i++) {
       $String = $_SESSION['playlist'][$i];
       echo "<tr>";
-        // Song number
         echo "<td align = \"center\">$i.</td>";
-        // Song name
         echo "<td align = \"center\">$String</td>";
-        // Remove from playlist button
+        //creates delete button
         echo "<td align = \"center\">";
           echo "<form action=\"delete-from-playlist.php\" method=\"post\">";
           echo "<input type=\"submit\" name=\"song\" value=$String>";

@@ -13,6 +13,7 @@
 	</head>
 		<div class="container">
 		<center>
+			<!--this sets background, and adds details to styling--> 
 			<body style="background-color:lavenderblush;">
 				<div class="w3-container w3-purple">
 					<h1>Song Removed From Library!</h1>
@@ -30,6 +31,7 @@
 </html>
 
 <?php
+// this function compares array and removes item
 function remove($song) {
   $_SESSION['songs'] = array_diff($_SESSION['songs'], [$song]);
   $_SESSION['songs'] = array_values($_SESSION['songs']);

@@ -1,36 +1,49 @@
  <?php session_start();
-    
+ $_SESSION['zamazon'] = array("Tension", "ILYSB", "Sunflower", "My Favorite Part");
  ?>
 <html>
-	<body style="background-color:powderblue;"> 
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	</head>
+	<div class="container">
+		<body style="background-color:lavenderblush;">
+		<center>
+		<div class="w3-container w3-purple">
         <h1> Welcome to zMazon Playlist</h1>
+		</div>
+		</br>
+		<div class="w3-container w3-blue">
 		<h2> This are our songs!</h2>
+		</div>
          <?php
 			printamazon();
+			 echo "<form action=\"my-songs.php\">";
+				echo "<input type=\"submit\" value=\"Back to myLibrary\">";
+			echo "</form>";
 		?>
 		
 		<?php
 		function printamazon(){
-		// Table headers are created here.
+		
 		echo "<table>";
-			echo "<tr>";
-				echo "<th width = \"10%\">#</th>";
-				echo "<th width = \"25%\">Name</th>";
+				echo "<tr>";
+				echo "<th width = \"30%\">Name</th>";
 				echo "<th width = \"25%\">Buy</th>";
 			echo "</tr>";
-
-		// To traverse the session and place each element in the apporopriate cell.
-			for ($i = 1; $i < count($_SESSION['zamazon']); $i++) {
+			for ($i = 0; $i < sizeof($_SESSION['zamazon']); $i++) {
 				$String = $_SESSION['zamazon'][$i];
 				echo "<tr>";
-        // Song number
 				echo "<td align = \"center\">$i.</td>";
-        // Song name
 				echo "<td align = \"center\">$String</td>";
-        // Playlist buttons
 			echo "<td align = \"center\">";
 				echo "<form action=\"addSong.php\" method=\"post\">";
-				echo "<input type=\"submit\" name=\"song\" value=\"Add\">";
+				echo "<input type=\"submit\" name=\"song\" value=$String>";
 				echo "</form>";
 			echo "</td>";
   
@@ -38,5 +51,6 @@
 		echo "</table>";
 }
         ?>
+		</center
     </body>
 </html>

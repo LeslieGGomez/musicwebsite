@@ -11,28 +11,23 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</head>
-		<div class="container">
-		<center>
-			<body style="background-color:lavenderblush;">
-				<div class="w3-container w3-purple">
-					<h1>Song Removed From Library!</h1>
-				</div>
-				</br>
-				<?php
+	<div class="container">
+		<body style="background-color:lavenderblush;">
+			<h1>Removing Song From Playlist!</h1>
+			<?php
 				$song = $_POST["song"];
 				remove($song);
 				echo "<form action=\"my-songs.php\">";
 					echo "<input type=\"submit\" value=\"Back to myLibrary\">";
 				echo "</form>";
-				?>
-			</body>
-		</center>
+			?>
+		</body>
 </html>
 
 <?php
 function remove($song) {
-  $_SESSION['songs'] = array_diff($_SESSION['songs'], [$song]);
-  $_SESSION['songs'] = array_values($_SESSION['songs']);
+  $_SESSION['playlist'] = array_diff($_SESSION['playlist'], [$song]);
+  $_SESSION['playlist'] = array_values($_SESSION['playlist']);
 }
 
 function removeFromArray($song) {
